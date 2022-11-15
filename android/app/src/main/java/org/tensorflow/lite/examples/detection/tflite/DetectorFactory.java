@@ -11,12 +11,12 @@ public class DetectorFactory {
             throws IOException {
         String labelFilename = null;
         boolean isQuantized = false;
-        int inputSize = 0;
+        int inputSize = 416;
         int[] output_width = new int[]{0};
         int[][] masks = new int[][]{{0}};
         int[] anchors = new int[]{0};
 
-        if (modelFilename.equals("yolov5s.tflite")) {
+        if (modelFilename.equals("best-fp16.tflite")) {
             labelFilename = "file:///android_asset/customclasses.txt";
             isQuantized = false;
             inputSize = 416;
@@ -36,7 +36,7 @@ public class DetectorFactory {
                     10,13, 16,30, 33,23, 30,61, 62,45, 59,119, 116,90, 156,198, 373,326
             };
         }
-        else if (modelFilename.equals("yolov5s-int8.tflite")) {
+        else if (modelFilename.equals("best-fp16.tflite")) {
             labelFilename = "file:///android_asset/customclasses.txt";
             isQuantized = true;
             inputSize = 416;
